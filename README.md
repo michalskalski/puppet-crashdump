@@ -1,10 +1,10 @@
-# Puppet Module for Linux crashdumps
+# Puppet Module for Linux Kernel crashdumps
 
-This puppet modules helps enable crashdumps on various Linux distributions. As of now it is tested on Ubuntu and CentOS.
+This puppet modules helps enable crashdumps for the Linux kernel on various Linux distributions. As of now it is tested on Ubuntu and CentOS.
 
 ## Documentation
 
-Enabling Linux Crashdumps:
+Enabling Linux Kernel Crashdumps:
 
 ```puppet
      include crashdump
