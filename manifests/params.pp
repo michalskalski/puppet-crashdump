@@ -14,7 +14,7 @@
 #
 class crashdump::params {
 
-  $package_ensure = installed
+  $package_ensure = 'installed'
   $package_name   = $::osfamily? {
     'Debian' => 'linux-crashdump',
     'RedHat' => [ 'crash', 'kexec-tools' ],
@@ -22,6 +22,6 @@ class crashdump::params {
 
   $service_name = 'kdump'
   $service_enable = true
-  $service_ensure = running
+  $service_ensure = 'running'
 
 }
