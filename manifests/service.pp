@@ -1,6 +1,6 @@
 # == Class: crashdump::service
 #
-# ensures thee kdump service is running
+# ensures thee kdump service is enabled
 #
 # === Parameters
 #
@@ -21,8 +21,7 @@ class crashdump::service {
   include crashdump::params
 
   service { $crashdump::params::service_name:
-    ensure => $crashdump::params::service_ensure,
-    enable => $crashdump::params::service_enable,
+    enable    => $crashdump::params::service_enable,
   }
 
 }
