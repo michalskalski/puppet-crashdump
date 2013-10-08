@@ -12,7 +12,7 @@ Enabling Linux Kernel Crashdumps:
 
 ## Patches and Testing
 
-Contributions are highly welcomed, more so are those which contribute patches with tests. Or just more tests! We have [rspec-puppet](http://rspec-puppet.com/) and [rspec-system](https://github.com/puppetlabs/rspec-system-serverspec) tests. When [https://help.github.com/articles/using-pull-requests](Github WorkFlow), please make sure that your patches pass tests:
+Contributions are highly welcomed, more so are those which contribute patches with tests. Or just more tests! We have [rspec-puppet](http://rspec-puppet.com/) and [rspec-system](https://github.com/puppetlabs/rspec-system-serverspec) tests. When [contributing patches](https://help.github.com/articles/using-pull-requests), please make sure that your patches pass tests:
 
 ```
   igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake spec
