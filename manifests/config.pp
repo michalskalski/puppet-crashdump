@@ -20,6 +20,7 @@ class crashdump::config {
 
   case $::osfamily {
     'RedHat' : {
+      # XXX this will need an onlyif =>
       exec { 'update grub config':
         command  => 'grubby --update-kernel=ALL --args="crashkernel=128M"',
         pwd      => '/',
@@ -32,7 +33,11 @@ class crashdump::config {
         # This is a hack. We make sure that on Ubuntu the crashkernel line in
         # /etc/grub.d/10_linux isn't something that will just NOT work, see errata:
         #   https://wiki.ubuntu.com/Kernel/CrashdumpRecipe#Release_specific_notes
-        # replace:     GRUB_CMDLINE_EXTRA="$GRUB_CMDLINE_EXTRA crashkernel=384M-2G:64M,2G-:128M"
+        #
+        # Rationale: We could put this into /etc/default/grub but that would mean
+        # potentially messing with other people's grub config. Since there's no
+        # way of managing a single part of a single line in a configuration file
+        # or any sensible hooks for grub that everyone uses, we keep it simple.
         'Ubuntu' : {
           file_line { 'crashkernel=128M':
             path  => '/etc/grub.d/10_linux',
