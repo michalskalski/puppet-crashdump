@@ -39,7 +39,7 @@ When cutting a new release, please
 * create a new, *signed* tag and a package, using rake
 
 ```
-    igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake release
+    igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake module:release
     git tag -s 1.3.2 -m 't&r 1.3.2'
     ...
     git checkout 1.3.2
@@ -52,13 +52,7 @@ When cutting a new release, please
     igalic@levix ~/src/bw/puppet-crashdump (git)-[1.3.2] %
 ```
 
-* push the tag,
-
-```
-    igalic@levix ~/src/bw/puppet-crashdump (git)-[1.3.2] % git push --tags origin
-```
-
-* and finally [upload the new package](http://forge.puppetlabs.com/brainsware/linux-crashdump/upload)
+* and [upload the new package](http://forge.puppetlabs.com/brainsware/linux-crashdump/upload)
 
 License
 -------

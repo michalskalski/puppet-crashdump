@@ -1,0 +1,16 @@
+{
+  "name": "brainsware-crashdump",
+  "version": "0.1.1",
+  "source": "https://github.com/Brainsware/puppet-crashdump",
+  "author": "brainsware",
+  "license": "Apache 2.0",
+  "summary": "Manage linux crashdump installation",
+  "description": "Manage linux crashdump installation",
+  "project_page": "https://github.com/Brainsware/puppet-crashdump",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=3.2.0 <5.0.0"
+    }
+  ]
+}
