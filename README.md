@@ -14,7 +14,7 @@ Enabling Linux Kernel Crashdumps:
 
 Contributions are highly welcomed, more so are those which contribute patches with tests. Or just more tests! We have [rspec-puppet](http://rspec-puppet.com/) and [rspec-system](https://github.com/puppetlabs/rspec-system-serverspec) tests. When [contributing patches](https://help.github.com/articles/using-pull-requests), please make sure that your patches pass tests:
 
-```
+```console
   igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake spec
   ....................................
 
@@ -23,13 +23,13 @@ Contributions are highly welcomed, more so are those which contribute patches wi
   igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake acceptance
 
   ...loads of output...
-  2 examples, 0 failures
+  3 examples, 0 failures
   igalic@levix ~/src/bw/puppet-crashdump (git)-[master] %
 ```
 
 ## Release process
 
-The version in Modulefile should be bumped according to [semver](http://semver.org/) *during development*, i.e.: The first commit after the release should already bump the version, as master at this point differs from the latest release.
+The version in metadata.json should be bumped according to [semver](http://semver.org/).
 
 When cutting a new release, please
 
@@ -37,22 +37,19 @@ When cutting a new release, please
 * make sure that the documentation is up-to-date
 * verify that all dependencies are correct, and up-to-date
 * create a new, *signed* tag and a package, using rake
-
-```
-    igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake module:release
-    git tag -s 1.3.2 -m 't&r 1.3.2'
-    ...
-    git checkout 1.3.2
-    Note: checking out '1.3.2'.
-    ...
-    HEAD is now at ff9aaae... Most awesome feature added. SHIPIT!
-    puppet module build .
-    Notice: Building /home/igalic/src/bw/puppet-crashdump for release
-    Module built: /home/igalic/src/bw/puppet-crashdump/pkg/brainsware-crashdump-1.3.2.tar.gz
-    igalic@levix ~/src/bw/puppet-crashdump (git)-[1.3.2] %
-```
-
 * and [upload the new package](http://forge.puppetlabs.com/brainsware/linux-crashdump/upload)
+
+This module uses blacksmith for the release process to do that, it does all of that for us:
+
+```console
+    igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake module:release
+    Cleaning for module build
+    Uploading to Puppet Forge brainsware/crashdump
+    Bumping version from 0.1.2 to 0.1.3
+    Pushing to remote git repo
+    igalic@levix ~/src/bw/puppet-crashdump (git)-[master] %
+```
+
 
 License
 -------
