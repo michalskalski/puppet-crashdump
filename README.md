@@ -20,7 +20,7 @@ Contributions are highly welcomed, more so are those which contribute patches wi
 
   Finished in 2.29 seconds
   36 examples, 0 failures
-  igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake spec:system
+  igalic@levix ~/src/bw/puppet-crashdump (git)-[master] % rake acceptance
 
   ...loads of output...
   2 examples, 0 failures
