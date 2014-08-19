@@ -10,18 +10,18 @@
 #
 # === Copyright
 #
-# Copyright 2013 Brainsware
+# Copyright 2014 Brainsware
 #
 class crashdump::params {
 
   $package_ensure = 'installed'
   $package_name   = $::osfamily? {
-    'Debian' => 'linux-crashdump',
+    'Debian' => [ 'linux-crashdump', 'kexec-tools' ],
     'RedHat' => [ 'crash', 'kexec-tools' ],
   }
 
-  $service_name = 'kdump'
-  $service_enable = true
+  $service_name   = 'kdump'
+  $service_enable =  true
   $service_ensure = 'running'
 
 }
