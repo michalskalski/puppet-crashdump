@@ -20,7 +20,11 @@ class crashdump::params {
     'RedHat' => [ 'crash', 'kexec-tools' ],
   }
 
-  $service_name   = 'kdump'
+  $service_name   = $::lsbdistcodename? {
+    'trusty' => 'kexec-load',
+    default  => 'kdump',
+  }
+
   $service_enable =  true
   $service_ensure = 'running'
 
