@@ -39,10 +39,15 @@ class crashdump::config {
         # way of managing a single part of a single line in a configuration file
         # or any sensible hooks for grub that everyone uses, we keep it simple.
         'Ubuntu' : {
-          file_line { 'crashkernel=128M':
+          file_line { 'crashkernel=256M':
             path  => '/etc/grub.d/10_linux',
             match => '    GRUB_CMDLINE_EXTRA="\$GRUB_CMDLINE_EXTRA crashkernel=.*',
-            line  => '    GRUB_CMDLINE_EXTRA="$GRUB_CMDLINE_EXTRA crashkernel=128M"',
+            line  => '    GRUB_CMDLINE_EXTRA="$GRUB_CMDLINE_EXTRA crashkernel=256M"',
+          }
+
+          file { "/var/crash":
+            ensure => "directory",
+            owner  => "root"
           }
         }
         default : {
