@@ -21,7 +21,11 @@ class crashdump::service {
   include crashdump::params
 
   service { $crashdump::params::service_name:
-    enable    => $crashdump::params::service_enable,
+    ensure     => $crashdump::params::service_ensure,
+    enable     => $crashdump::params::service_enable,
+    hasstatus  => false,
+    hasrestart => false,
+    status     => '/bin/grep -q 1 /sys/kernel/kexec_crash_loaded',
   }
 
 }
